@@ -1,0 +1,138 @@
+:root {
+    /* --- COLORS (Default / Light Mode) --- */
+    --neutral-900: #051513;
+    --neutral-800: #4C5C59;
+    --neutral-500: #899492;
+    --neutral-400: #C0CFCC;
+    --neutral-300: #DDE9E7;
+    --neutral-100: #E8F0EF;
+    --neutral-0:   #FFFFFF;
+
+    --teal-700: #014745;
+    --teal-800: #013C3B;
+
+    --red-600: #FD4740;
+    --red-800: #CB0A04;
+
+    /* --- SPACING --- */
+    --spacing-0:    0px;
+    --spacing-025:  2px;
+    --spacing-050:  4px;
+    --spacing-075:  6px;
+    --spacing-100:  8px;
+    --spacing-125:  10px;
+    --spacing-150:  12px;
+    --spacing-200:  16px;
+    --spacing-250:  20px;
+    --spacing-300:  24px;
+    --spacing-400:  32px;
+    --spacing-500:  40px;
+    --spacing-600:  48px;
+    --spacing-800:  64px;
+    --spacing-1000: 80px;
+    --spacing-1200: 96px;
+    --spacing-1400: 112px;
+    --spacing-1600: 128px;
+    --spacing-1800: 140px;
+
+    /* --- RADIUS --- */
+    --radius-0:    0px;
+    --radius-4:    4px;
+    --radius-6:    6px;
+    --radius-8:    8px;
+    --radius-10:   10px;
+    --radius-12:   12px;
+    --radius-16:   16px;
+    --radius-20:   20px;
+    --radius-24:   24px;
+    --radius-full: 9999px;
+
+    /* --- FONTS --- */
+    --font-main: 'Manrope', sans-serif;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --neutral-900: #001414;
+    --neutral-800: #001F1F;
+    --neutral-600: #002E2D;
+    --neutral-500: #004241;
+    --neutral-400: #004746;
+    --neutral-300: #00706E;
+    --neutral-100: #B1B9B9;
+    --neutral-0:   #FFFFFF;
+}
+
+/* --- TYPOGRAPHY UTILITIES / MIXINS --- */
+
+/* Text Preset 1 - Manrope, Bold, 24px */
+.text-preset-1 {
+    font-family: var(--font-main);
+    font-weight: 700; /* Bold */
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: 0px;
+}
+
+/* Text Preset 2 - Manrope, Bold, 20px */
+.text-preset-2 {
+    font-family: var(--font-main);
+    font-weight: 700; /* Bold */
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0px;
+}
+
+/* Text Preset 2 (SemiBold) - Manrope, SemiBold, 20px */
+.text-preset-2-semibold {
+    font-family: var(--font-main);
+    font-weight: 600; /* SemiBold */
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0px;
+}
+
+/* Text Preset 3 - Manrope, SemiBold, 16px */
+.text-preset-3 {
+    font-family: var(--font-main);
+    font-weight: 600; /* SemiBold */
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0px;
+}
+
+/* Text Preset 3 (Medium) - Manrope, Medium, 16px */
+.text-preset-3-medium {
+    font-family: var(--font-main);
+    font-weight: 500; /* Medium */
+    font-size: 16px;
+    line-height: 130%; /* Uwaga: tutaj jest 130% wg designu */
+    letter-spacing: 0px;
+}
+
+/* Text Preset 4 - Manrope, SemiBold, 14px */
+.text-preset-4 {
+    font-family: var(--font-main);
+    font-weight: 600; /* SemiBold */
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0px;
+}
+
+/* Text Preset 4 (Medium) - Manrope, Medium, 14px */
+.text-preset-4-medium {
+    font-family: var(--font-main);
+    font-weight: 500; /* Medium */
+    font-size: 14px;
+    line-height: 150%; /* Uwaga: tutaj jest 150% wg designu */
+    letter-spacing: 0px;
+}
+
+/* Text Preset 5 - Manrope, Medium, 12px */
+.text-preset-5 {
+    font-family: var(--font-main);
+    font-weight: 500; /* Medium */
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: 0px;
+}
