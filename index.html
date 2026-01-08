@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Frontend Mentor | Bookmark manager app</title>
     <link rel="stylesheet" href="src/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-  </body>
+</head>
+<body class="bg-neutral-100">
+<header class="header bg-neutral-0 px-4 py-3 border border-neutral-300">
+    <div class="flex justify-between items-center">
+        <button class="hamburguer p-2 border border-neutral-400 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
+                      d="M2.5 10h15m-15-5h15m-15 10h15"/>
+            </svg>
+        </button>
+        <div class="search flex items-center px-3 py-2 border border-neutral-300 rounded-lg space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke="#051513" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
+                      d="m17.5 17.5-3.625-3.625m1.958-4.708a6.667 6.667 0 1 1-13.333 0 6.667 6.667 0 0 1 13.333 0"/>
+            </svg>
+            <input type="text" class="text-preset-4-medium" placeholder="Search by title...">
+        </div>
+        <button class="add flex justify-center items-center p-2 bg-teal-700 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
+                      d="M10 4.167v11.666M4.167 10h11.667"/>
+            </svg>
+        </button>
+        <div class="profile">
+            <img src="/image-avatar.webp" class="w-10" alt="profile-picture">
+        </div>
+    </div>
+</header>
+</body>
 <script src="src/index.ts"></script>
 </html>

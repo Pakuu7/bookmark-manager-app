@@ -1,138 +1,152 @@
-:root {
-    /* --- COLORS (Default / Light Mode) --- */
-    --neutral-900: #051513;
-    --neutral-800: #4C5C59;
-    --neutral-500: #899492;
-    --neutral-400: #C0CFCC;
-    --neutral-300: #DDE9E7;
-    --neutral-100: #E8F0EF;
-    --neutral-0:   #FFFFFF;
+@import "tailwindcss";
 
-    --teal-700: #014745;
-    --teal-800: #013C3B;
+@theme {
+    --color-neutral-900: var(--neutral-900);
+    --color-neutral-800: var(--neutral-800);
+    --color-neutral-600: var(--neutral-600);
+    --color-neutral-500: var(--neutral-500);
+    --color-neutral-400: var(--neutral-400);
+    --color-neutral-300: var(--neutral-300);
+    --color-neutral-100: var(--neutral-100);
+    --color-neutral-0:   var(--neutral-0);
 
-    --red-600: #FD4740;
-    --red-800: #CB0A04;
+    --color-teal-700: var(--teal-700);
+    --color-teal-800: var(--teal-800);
 
-    /* --- SPACING --- */
-    --spacing-0:    0px;
-    --spacing-025:  2px;
-    --spacing-050:  4px;
-    --spacing-075:  6px;
-    --spacing-100:  8px;
-    --spacing-125:  10px;
-    --spacing-150:  12px;
-    --spacing-200:  16px;
-    --spacing-250:  20px;
-    --spacing-300:  24px;
-    --spacing-400:  32px;
-    --spacing-500:  40px;
-    --spacing-600:  48px;
-    --spacing-800:  64px;
-    --spacing-1000: 80px;
-    --spacing-1200: 96px;
-    --spacing-1400: 112px;
-    --spacing-1600: 128px;
-    --spacing-1800: 140px;
+    --color-red-600: var(--red-600);
+    --color-red-800: var(--red-800);
 
-    /* --- RADIUS --- */
-    --radius-0:    0px;
-    --radius-4:    4px;
-    --radius-6:    6px;
-    --radius-8:    8px;
-    --radius-10:   10px;
-    --radius-12:   12px;
-    --radius-16:   16px;
-    --radius-20:   20px;
-    --radius-24:   24px;
-    --radius-full: 9999px;
+    --spacing-0:    var(--spacing-0);
+    --spacing-025:  var(--spacing-025);
+    --spacing-050:  var(--spacing-050);
+    --spacing-075:  var(--spacing-075);
+    --spacing-100:  var(--spacing-100);
+    --spacing-125:  var(--spacing-125);
+    --spacing-150:  var(--spacing-150);
+    --spacing-200:  var(--spacing-200);
+    --spacing-250:  var(--spacing-250);
+    --spacing-300:  var(--spacing-300);
+    --spacing-400:  var(--spacing-400);
+    --spacing-500:  var(--spacing-500);
+    --spacing-600:  var(--spacing-600);
+    --spacing-800:  var(--spacing-800);
+    --spacing-1000: var(--spacing-1000);
+    --spacing-1200: var(--spacing-1200);
+    --spacing-1400: var(--spacing-1400);
+    --spacing-1600: var(--spacing-1600);
+    --spacing-1800: var(--spacing-1800);
 
-    /* --- FONTS --- */
-    --font-main: 'Manrope', sans-serif;
+    --radius-0:    var(--radius-0);
+    --radius-4:    var(--radius-4);
+    --radius-6:    var(--radius-6);
+    --radius-8:    var(--radius-8);
+    --radius-10:   var(--radius-10);
+    --radius-12:   var(--radius-12);
+    --radius-16:   var(--radius-16);
+    --radius-20:   var(--radius-20);
+    --radius-24:   var(--radius-24);
+
+    --font-main: "Manrope", sans-serif;
 }
 
-/* Dark Mode */
-[data-theme="dark"] {
-    --neutral-900: #001414;
-    --neutral-800: #001F1F;
-    --neutral-600: #002E2D;
-    --neutral-500: #004241;
-    --neutral-400: #004746;
-    --neutral-300: #00706E;
-    --neutral-100: #B1B9B9;
-    --neutral-0:   #FFFFFF;
+@layer base {
+    :root {
+        /* --- COLORS (Light Mode) --- */
+        --neutral-900: #051513;
+        --neutral-800: #4C5C59;
+        --neutral-500: #899492;
+        --neutral-400: #C0CFCC;
+        --neutral-300: #DDE9E7;
+        --neutral-100: #E8F0EF;
+        --neutral-0:   #FFFFFF;
+
+        --teal-700: #014745;
+        --teal-800: #013C3B;
+
+        --red-600: #FD4740;
+        --red-800: #CB0A04;
+
+        /* --- SPACING --- */
+        --spacing-0:    0px;
+        --spacing-025:  2px;
+        --spacing-050:  4px;
+        --spacing-075:  6px;
+        --spacing-100:  8px;
+        --spacing-125:  10px;
+        --spacing-150:  12px;
+        --spacing-200:  16px;
+        --spacing-250:  20px;
+        --spacing-300:  24px;
+        --spacing-400:  32px;
+        --spacing-500:  40px;
+        --spacing-600:  48px;
+        --spacing-800:  64px;
+        --spacing-1000: 80px;
+        --spacing-1200: 96px;
+        --spacing-1400: 112px;
+        --spacing-1600: 128px;
+        --spacing-1800: 140px;
+
+        /* --- RADIUS --- */
+        --radius-0:    0px;
+        --radius-4:    4px;
+        --radius-6:    6px;
+        --radius-8:    8px;
+        --radius-10:   10px;
+        --radius-12:   12px;
+        --radius-16:   16px;
+        --radius-20:   20px;
+        --radius-24:   24px;
+        --radius-full: 9999px;
+    }
+
+    /* --- DARK MODE OVERRIDES --- */
+    [data-theme="dark"] {
+        --neutral-900: #001414;
+        --neutral-800: #001F1F;
+        --neutral-600: #002E2D; /* Dodane dla pewności */
+        --neutral-500: #004241;
+        --neutral-400: #004746;
+        --neutral-300: #00706E;
+        --neutral-100: #B1B9B9;
+        --neutral-0:   #FFFFFF;
+    }
+
+    body {
+        @apply font-main text-neutral-900 bg-neutral-0;
+    }
 }
 
-/* --- TYPOGRAPHY UTILITIES / MIXINS --- */
+@layer components {
+    .text-preset-1 {
+        @apply font-main font-bold text-[24px] leading-[140%] tracking-normal;
+    }
 
-/* Text Preset 1 - Manrope, Bold, 24px */
-.text-preset-1 {
-    font-family: var(--font-main);
-    font-weight: 700; /* Bold */
-    font-size: 24px;
-    line-height: 140%;
-    letter-spacing: 0px;
-}
+    .text-preset-2 {
+        @apply font-main font-bold text-[20px] leading-[120%] tracking-normal;
+    }
 
-/* Text Preset 2 - Manrope, Bold, 20px */
-.text-preset-2 {
-    font-family: var(--font-main);
-    font-weight: 700; /* Bold */
-    font-size: 20px;
-    line-height: 120%;
-    letter-spacing: 0px;
-}
+    .text-preset-2-semibold {
+        @apply font-main font-semibold text-[20px] leading-[120%] tracking-normal;
+    }
 
-/* Text Preset 2 (SemiBold) - Manrope, SemiBold, 20px */
-.text-preset-2-semibold {
-    font-family: var(--font-main);
-    font-weight: 600; /* SemiBold */
-    font-size: 20px;
-    line-height: 120%;
-    letter-spacing: 0px;
-}
+    .text-preset-3 {
+        @apply font-main font-semibold text-[16px] leading-[140%] tracking-normal;
+    }
 
-/* Text Preset 3 - Manrope, SemiBold, 16px */
-.text-preset-3 {
-    font-family: var(--font-main);
-    font-weight: 600; /* SemiBold */
-    font-size: 16px;
-    line-height: 140%;
-    letter-spacing: 0px;
-}
+    .text-preset-3-medium {
+        @apply font-main font-medium text-[16px] leading-[130%] tracking-normal;
+    }
 
-/* Text Preset 3 (Medium) - Manrope, Medium, 16px */
-.text-preset-3-medium {
-    font-family: var(--font-main);
-    font-weight: 500; /* Medium */
-    font-size: 16px;
-    line-height: 130%; /* Uwaga: tutaj jest 130% wg designu */
-    letter-spacing: 0px;
-}
+    .text-preset-4 {
+        @apply font-main font-semibold text-[14px] leading-[140%] tracking-normal;
+    }
 
-/* Text Preset 4 - Manrope, SemiBold, 14px */
-.text-preset-4 {
-    font-family: var(--font-main);
-    font-weight: 600; /* SemiBold */
-    font-size: 14px;
-    line-height: 140%;
-    letter-spacing: 0px;
-}
+    .text-preset-4-medium {
+        @apply font-main font-medium text-[14px] leading-[150%] tracking-normal;
+    }
 
-/* Text Preset 4 (Medium) - Manrope, Medium, 14px */
-.text-preset-4-medium {
-    font-family: var(--font-main);
-    font-weight: 500; /* Medium */
-    font-size: 14px;
-    line-height: 150%; /* Uwaga: tutaj jest 150% wg designu */
-    letter-spacing: 0px;
-}
-
-/* Text Preset 5 - Manrope, Medium, 12px */
-.text-preset-5 {
-    font-family: var(--font-main);
-    font-weight: 500; /* Medium */
-    font-size: 12px;
-    line-height: 140%;
-    letter-spacing: 0px;
+    .text-preset-5 {
+        @apply font-main font-medium text-[12px] leading-[140%] tracking-normal;
+    }
 }
