@@ -104,7 +104,7 @@
     [data-theme="dark"] {
         --neutral-900: #001414;
         --neutral-800: #001F1F;
-        --neutral-600: #002E2D; /* Dodane dla pewności */
+        --neutral-600: #002E2D;
         --neutral-500: #004241;
         --neutral-400: #004746;
         --neutral-300: #00706E;
