@@ -123,6 +123,46 @@
         </div>
     </div>
 </main>
+<div class="add-bookmark bg-neutral-0 rounded-2xl p-8 space-y-8">
+    <div class="top relative">
+        <div class="space-y-2">
+            <h2 class="text-preset-1">Add a bookmark</h2>
+            <p class="text-preset-4-medium">Save a link with details to keep your collection organized. We extract the
+                favicon automatically from the URL.</p>
+        </div>
+        <div class="absolute -top-2 right-0 p-1.5 border border-neutral-400 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                <path stroke="#001414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
+                      d="M15 5 5 15M5 5l10 10"/>
+            </svg>
+        </div>
+    </div>
+    <div class="bottom">
+        <form class="space-y-5">
+            <div class="flex flex-col space-y-1.5">
+                <label for="title" class="text-preset-4 text-neutral-900">Title <span class="text-teal-700">*</span></label>
+                <input type="text" id="title" name="title" class="text-preset-4-medium p-3 border border-neutral-500 rounded-lg">
+            </div>
+            <div class="flex flex-col space-y-1.5">
+                <label for="description" class="text-preset-4 text-neutral-900">Description <span class="text-teal-700">*</span></label>
+                <textarea class="text-preset-4-medium p-3 border border-neutral-500 rounded-lg" id="description" name="description" rows="3"></textarea>
+                <div class="text-preset-5 text-right">0/280</div>
+            </div>
+            <div class="flex flex-col space-y-1.5">
+                <label for="website" class="text-preset-4 text-neutral-900">Website URL <span class="text-teal-700">*</span></label>
+                <input type="url" id="website" name="website" class="text-preset-4-medium p-3 border border-neutral-500 rounded-lg">
+            </div>
+            <div class="flex flex-col space-y-1.5">
+                <label for="tags" class="text-preset-4 text-neutral-900">Tags <span class="text-teal-700">*</span></label>
+                <input type="text" id="tags" name="tags" placeholder="e.g. Design, Learning, Tools" class="text-preset-4-medium p-3 border border-neutral-500 rounded-lg">
+            </div>
+        </form>
+        <div class="text-right space-x-4 mt-8">
+            <button class="text-preset-3 border border-neutral-400 rounded-lg px-4 py-3">Cancel</button>
+            <button class="text-preset-3 bg-teal-700 text-neutral-0 border border-neutral-400 rounded-lg px-4 py-3">Add Bookmark</button>
+        </div>
+    </div>
+</div>
 </body>
 <script src="src/index.ts"></script>
 </html>
