@@ -4,11 +4,18 @@ const addInput = document.querySelector('.add') as HTMLButtonElement;
 const addBookmarkPanel = document.querySelector('.add-bookmark') as HTMLDivElement;
 const closeBookmarkPanel = document.querySelector('.bookmarkClose') as HTMLButtonElement;
 // const addBookmarkBtn = document.querySelector('.addBookmarkBtn') as HTMLButtonElement;
+const closeHamburgerMenuBtn = document.querySelector('.close-hamburger-btn') as HTMLImageElement;
+const openHamburgerMenuBtn = document.querySelector('.open-hamburguer-btn') as HTMLButtonElement;
 
-function showAddPanel() {
-    addBookmarkPanel.classList.toggle('hidden')
+const hamburgerMenu = document.querySelector('.hamburger-menu') as HTMLDivElement;
+
+const toggleElement = (element: HTMLElement) => {
+    element.classList.toggle('hidden')
 }
-addInput.addEventListener('click', showAddPanel)
-closeBookmarkPanel.addEventListener('click', showAddPanel)
+
+addInput.addEventListener('click', () => toggleElement(addBookmarkPanel))
+closeBookmarkPanel.addEventListener('click', () => toggleElement(addBookmarkPanel))
+closeHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
+openHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
 
 showBookmarks()

@@ -12,7 +12,7 @@
 <body class="bg-neutral-100 relative">
 <header class="header bg-neutral-0 px-4 py-3 border border-neutral-300">
     <div class="flex justify-between items-center">
-        <button class="hamburguer p-2 border border-neutral-400 rounded-lg">
+        <button class="open-hamburguer-btn p-2 border border-neutral-400 rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                 <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
                       d="M2.5 10h15m-15-5h15m-15 10h15"/>
@@ -51,20 +51,20 @@
     </div>
     <div class="cards space-y-8"></div>
 </main>
-<div class="hamburger-menu fixed inset-0 z-50">
+<div class="hidden hamburger-menu fixed inset-0 z-50">
     <div class="absolute inset-0 bg-neutral-900/40 backdrop-blur-xs"></div>
     <div class="absolute top-0 left-0 h-full header-menu bg-neutral-0 w-4/5 space-y-4">
         <div class="top relative p-5 pb-2.5">
-            <img src="public/logo-light-theme.svg">
-            <img src="public/icon-close.svg" class="absolute top-5 right-5" alt="">
+            <img src="/logo-light-theme.svg">
+            <img src="/icon-close.svg" class="close-hamburger-btn absolute top-5 right-5" alt="">
         </div>
         <div class="main px-4 pb-5 space-y-4">
             <div class="pages">
                 <button class="flex items-center text-preset-3 text-neutral-800 px-3 py-2 bg-neutral-100 rounded-md w-full cursor-pointer">
-                    <img src="public/icon-home.svg" alt="" class="pr-2">Home
+                    <img src="/icon-home.svg" alt="" class="pr-2">Home
                 </button>
                 <button class="flex items-center text-preset-3 text-neutral-800 px-3 py-2 w-full cursor-pointer">
-                    <img src="public/icon-archive.svg" alt="" class="pr-2">Archived
+                    <img src="/icon-archive.svg" alt="" class="pr-2">Archived
                 </button>
             </div>
             <div>
