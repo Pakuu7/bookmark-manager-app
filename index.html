@@ -12,7 +12,7 @@
 <body class="bg-neutral-100 relative">
 <header class="header bg-neutral-0 px-4 py-3 border border-neutral-300">
     <div class="flex justify-between items-center">
-        <button class="open-hamburguer-btn p-2 border border-neutral-400 rounded-lg">
+        <button class="open-hamburger-btn p-2 border border-neutral-400 rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                 <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
                       d="M2.5 10h15m-15-5h15m-15 10h15"/>
@@ -37,7 +37,7 @@
     </div>
 </header>
 <main class="px-4 py-6">
-    <div class="main-header flex justify-between items-center pb-5">
+    <div class="relative main-header flex justify-between items-center pb-5">
         <div>
             <h2 class="text-preset-2">All bookmarks</h2>
         </div>
@@ -48,6 +48,26 @@
             </svg>
             <p class="text-preset-3 px-0.5">Sort by</p>
         </button>
+        <div class="sort-menu absolute top-full -mt-3 right-0 bg-neutral-0 p-2 border border-neutral-100 rounded-lg w-50">
+            <ul class="space-y-1 text-left">
+                <li role="none">
+                    <button role="option" aria-selected="true" class="flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
+                        <span>Recently added</span>
+                        <img src="/icon-check.svg" alt="" aria-hidden="true" class="w-4 h-4">
+                    </button>
+                </li>
+                <li role="none">
+                    <button role="option" aria-selected="false" class="flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
+                        <span>Recently visited</span>
+                    </button>
+                </li>
+                <li role="none">
+                    <button role="option" aria-selected="false" class="flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
+                        <span>Most visited</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="cards space-y-8"></div>
 </main>
