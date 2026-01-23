@@ -1,6 +1,5 @@
 import {showBookmarks} from "./bookmark-manager.ts";
-// import {sortBookmarks} from "./sorting.ts";
-
+import {bookmarks} from "./bookmark-manager.ts";
 const addInput = document.querySelector('.add') as HTMLButtonElement;
 const addBookmarkPanel = document.querySelector('.add-bookmark') as HTMLDivElement;
 const closeBookmarkPanel = document.querySelector('.bookmarkClose') as HTMLButtonElement;
@@ -19,5 +18,4 @@ closeBookmarkPanel.addEventListener('click', () => toggleElement(addBookmarkPane
 closeHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
 openHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
 
-showBookmarks()
-// sortBookmarks()
+showBookmarks(bookmarks)

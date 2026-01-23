@@ -1,8 +1,9 @@
 import data from '../json/data.json'
+import {sortBookmarks} from "./sorting.ts";
 
 const cardsContainer = document.querySelector('.cards') as HTMLDivElement;
 
-interface Bookmark {
+export interface Bookmark {
     id: string;
     title: string;
     url: string;
@@ -16,7 +17,7 @@ interface Bookmark {
     lastVisited: string | null;
 }
 
-const bookmarks: Bookmark[] = data.bookmarks
+export const bookmarks: Bookmark[] = data.bookmarks
 
 function formatDate(date: string | null) {
         if (!date) return 'Never'
@@ -26,9 +27,10 @@ function formatDate(date: string | null) {
         return `${day} ${month}`
 }
 
-export function showBookmarks() {
+export function showBookmarks(list: Bookmark[]) {
+    cardsContainer.innerHTML = ''
     const fragment = document.createDocumentFragment()
-    bookmarks.forEach(bookmark => {
+    list.forEach(bookmark => {
         const card = document.createElement('div');
         card.classList.add('bg-neutral-0', 'shadow-lg', 'rounded-xl')
         const lastVisitedText = formatDate(bookmark.lastVisited);
@@ -114,3 +116,6 @@ export function showBookmarks() {
     })
     cardsContainer.appendChild(fragment)
 }
+
+showBookmarks(bookmarks)
+sortBookmarks()
