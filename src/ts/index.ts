@@ -2,9 +2,12 @@ import {showBookmarks} from "./bookmark-manager.ts";
 import {bookmarks} from "./bookmark-manager.ts";
 import {menuCheckToggle} from "./sorting.ts";
 import {processNewBookmark} from "./add-bookmark.ts";
+import {validateAddForm} from "./add-bookmark.ts";
+import {resetForm} from "./add-bookmark.ts";
 
 const addInput = document.querySelector('.add') as HTMLButtonElement;
 const addBookmarkBtn = document.querySelector('.add-bookmark-btn') as HTMLButtonElement;
+const cancelBookmarkBtn = document.querySelector('.cancel-bookmark-btn') as HTMLButtonElement;
 const addBookmarkPanel = document.querySelector('.add-bookmark') as HTMLDivElement;
 const closeBookmarkPanel = document.querySelector('.bookmarkClose') as HTMLButtonElement;
 // const addBookmarkBtn = document.querySelector('.addBookmarkBtn') as HTMLButtonElement;
@@ -28,5 +31,12 @@ sortMenuBtn.addEventListener('click', () => toggleElement(sortMenu))
 showBookmarks(bookmarks)
 menuCheckToggle()
 addBookmarkBtn.addEventListener('click', () => {
+    if (!validateAddForm()) return
     processNewBookmark()
+    resetForm()
+})
+
+cancelBookmarkBtn.addEventListener('click', () => {
+    resetForm()
+    toggleElement(addBookmarkPanel)
 })
