@@ -1,5 +1,6 @@
-import data from '../json/data.json'
 import {sortBookmarks} from "./sorting.ts";
+import {getBookmarksFromStorage} from "./storage.ts";
+import data from "../json/data.json"
 
 const cardsContainer = document.querySelector('.cards') as HTMLDivElement;
 
@@ -17,7 +18,7 @@ export interface Bookmark {
     lastVisited: string | null;
 }
 
-export const bookmarks: Bookmark[] = data.bookmarks
+export const bookmarks: Bookmark[] = getBookmarksFromStorage() || data.bookmarks
 
 function formatDate(date: string | null) {
         if (!date) return 'Never'

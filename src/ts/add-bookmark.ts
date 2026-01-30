@@ -8,7 +8,7 @@ const websiteError = document.querySelector('.website-error') as HTMLSpanElement
 const tagsError = document.querySelector('.tags-error') as HTMLSpanElement;
 
 import {type Bookmark, bookmarks, showBookmarks} from "./bookmark-manager.ts";
-
+import {saveBookmarksToStorage} from "./storage.ts";
 
 export function createBookmarkObject(): Bookmark {
     const titleValue = titleInput.value;
@@ -34,6 +34,7 @@ export function createBookmarkObject(): Bookmark {
 export function processNewBookmark() {
     const newBookmark = createBookmarkObject()
     bookmarks.push(newBookmark)
+    saveBookmarksToStorage(bookmarks)
     showBookmarks(bookmarks)
 }
 
