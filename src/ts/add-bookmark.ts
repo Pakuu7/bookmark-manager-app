@@ -9,6 +9,7 @@ const tagsError = document.querySelector('.tags-error') as HTMLSpanElement;
 
 import {type Bookmark, bookmarks, showBookmarks} from "./bookmark-manager.ts";
 import {saveBookmarksToStorage} from "./storage.ts";
+import {showTags} from "./tags.ts";
 
 export function createBookmarkObject(): Bookmark {
     const titleValue = titleInput.value;
@@ -36,6 +37,7 @@ export function processNewBookmark() {
     bookmarks.push(newBookmark)
     saveBookmarksToStorage(bookmarks)
     showBookmarks(bookmarks)
+    showTags()
 }
 
 export function resetForm() {

@@ -5,6 +5,7 @@ import {processNewBookmark} from "./add-bookmark.ts";
 import {validateAddForm} from "./add-bookmark.ts";
 import {resetForm} from "./add-bookmark.ts";
 import {searchBookmarks} from "./search.ts";
+import {showTags} from "./tags.ts";
 
 const addInput = document.querySelector('.add') as HTMLButtonElement;
 const addBookmarkBtn = document.querySelector('.add-bookmark-btn') as HTMLButtonElement;
@@ -44,3 +45,5 @@ cancelBookmarkBtn.addEventListener('click', () => {
 })
 
 searchInput.addEventListener('input', searchBookmarks)
+
+showTags()

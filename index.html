@@ -51,19 +51,22 @@
         <div class="hidden sort-menu absolute top-full -mt-3 right-0 bg-neutral-0 p-2 border border-neutral-100 rounded-lg w-50">
             <ul class="space-y-1 text-left">
                 <li role="none">
-                    <button role="option" aria-selected="false" class="recently-added flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
+                    <button role="option" aria-selected="false"
+                            class="recently-added flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
                         <span>Recently added</span>
                         <img src="/icon-check.svg" alt="" aria-hidden="true" class="hidden check w-4 h-4">
                     </button>
                 </li>
                 <li role="none">
-                    <button role="option" aria-selected="true" class="recently-visited flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
+                    <button role="option" aria-selected="true"
+                            class="recently-visited flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
                         <span>Recently visited</span>
                         <img src="/icon-check.svg" alt="" aria-hidden="true" class="check w-4 h-4">
                     </button>
                 </li>
                 <li role="none">
-                    <button role="option" aria-selected="false" class="most-visited flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
+                    <button role="option" aria-selected="false"
+                            class="most-visited flex items-center justify-between w-full p-2 text-preset-4 text-left rounded-md cursor-pointer">
                         <span>Most visited</span>
                         <img src="/icon-check.svg" alt="" aria-hidden="true" class="hidden check w-4 h-4">
                     </button>
@@ -75,94 +78,92 @@
 </main>
 <div class="hidden hamburger-menu fixed inset-0 z-50">
     <div class="absolute inset-0 bg-neutral-900/40 backdrop-blur-xs"></div>
-    <div class="absolute top-0 left-0 h-full header-menu bg-neutral-0 w-4/5 space-y-4">
-        <div class="top relative p-5 pb-2.5">
+    <div class="absolute top-0 left-0 h-full header-menu bg-white w-4/5 flex flex-col">
+        <div class="top relative p-5 pb-2.5 flex-none">
             <img src="/logo-light-theme.svg">
-            <img src="/icon-close.svg" class="close-hamburger-btn absolute top-5 right-5" alt="">
+            <img src="/icon-close.svg" class="close-hamburger-btn absolute top-5 right-5 cursor-pointer" alt="">
         </div>
-        <div class="main px-4 pb-5 space-y-4">
-            <div class="pages">
-                <button class="flex items-center text-preset-3 text-neutral-800 px-3 py-2 bg-neutral-100 rounded-md w-full cursor-pointer">
+        <div class="main px-4 flex flex-col flex-1 min-h-0 space-y-4">
+            <div class="pages flex-none">
+                <button class="flex items-center text-preset-3 text-neutral-800 px-3 py-2 bg-neutral-100 rounded-md w-full cursor-pointer mb-2">
                     <img src="/icon-home.svg" alt="" class="pr-2">Home
                 </button>
                 <button class="flex items-center text-preset-3 text-neutral-800 px-3 py-2 w-full cursor-pointer">
                     <img src="/icon-archive.svg" alt="" class="pr-2">Archived
                 </button>
             </div>
-            <div>
-                <h2 class="font-bold text-xs px-3 pb-1">TAGS</h2>
-                <div class="tags space-y-0.5">
-                    <div class="tag flex items-center justify-between px-3 py-2">
-                        <div class="flex items-center space-x-2">
-                            <input type="checkbox">
-                            <p class="text-preset-3 text-neutral-800">Ai</p>
-                        </div>
-                        <div class="bg-neutral-100 px-2 py-0.5 font-bold text-xs border border-neutral-300 rounded-full">
-                            <span class="text-neutral-800">1</span>
-                        </div>
-                    </div>
+            <div class="flex flex-col flex-1 min-h-0 overflow-hidden">
+                <h2 class="font-bold text-xs px-3 pb-1 text-neutral-500 uppercase">Tags</h2>
+                <div class="tags space-y-0.5 overflow-y-auto flex-1 mb-10">
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="add-bookmark fixed inset-0 z-50 flex items-center justify-center bg-neutral-900/50 hidden">
-    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8">
-        <div class="top relative">
-            <div class="space-y-2">
-                <h2 class="text-preset-2">Add a bookmark</h2>
-                <p class="text-preset-5">Save a link with details to keep your collection organized. We extract the
-                    favicon automatically from the URL.</p>
-            </div>
-            <button class="absolute bookmarkClose -top-2 right-0 p-1.5 border border-neutral-400 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                    <path stroke="#001414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
-                          d="M15 5 5 15M5 5l10 10"/>
-                </svg>
-            </button>
-        </div>
-        <div class="bottom">
-            <form class="space-y-5">
-                <div class="relative flex flex-col space-y-1.5">
-                    <label for="title" class="text-preset-4-medium text-neutral-900">Title <span
-                            class="text-teal-700">*</span></label>
-                    <input type="text" id="title" name="title" maxlength="40"
-                           class="title-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg" required>
-                    <span class="hidden absolute title-error -bottom-4 text-red-800 text-preset-4-medium">Title is required</span>
+    <div class="add-bookmark fixed inset-0 z-50 flex items-center justify-center bg-neutral-900/50 hidden">
+        <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8">
+            <div class="top relative">
+                <div class="space-y-2">
+                    <h2 class="text-preset-2">Add a bookmark</h2>
+                    <p class="text-preset-5">Save a link with details to keep your collection organized. We extract the
+                        favicon automatically from the URL.</p>
                 </div>
-                <div class="relative flex flex-col space-y-1.5">
-                    <label for="description" class="text-preset-4-medium text-neutral-900">Description <span
-                            class="text-teal-700">*</span></label>
-                    <textarea class="description-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
-                              id="description"
-                              name="description" rows="3" maxlength="280" required></textarea>
-                    <div class="text-preset-5 text-right">0/280</div>
-                    <span class="hidden absolute description-error bottom-1 text-red-800 text-preset-4-medium">Description is required</span>
-                </div>
-                <div class="relative flex flex-col space-y-1.5">
-                    <label for="website" class="text-preset-4-medium text-neutral-900">Website URL <span
-                            class="text-teal-700">*</span></label>
-                    <input type="url" id="website" name="website" maxlength="250"
-                           class="website-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg" required>
-                    <span class="hidden absolute website-error -bottom-4 text-red-800 text-preset-4-medium">Valid URL is required</span>
-                </div>
-                <div class="relative flex flex-col space-y-1.5">
-                    <label for="tags" class="text-preset-4-medium text-neutral-900">Tags <span
-                            class="text-teal-700">*</span></label>
-                    <input type="text" id="tags" name="tags" placeholder="e.g. Design, Learning, Tools" maxlength="50"
-                           class="tags-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg" required>
-                    <span class="hidden absolute tags-error -bottom-4 text-red-800 text-preset-4-medium">Tags are required</span>
-                </div>
-            </form>
-            <div class="text-right space-x-4 mt-8">
-                <button class="cancel-bookmark-btn text-preset-3 border border-neutral-400 rounded-lg px-4 py-3">Cancel</button>
-                <button class="add-bookmark-btn text-preset-3 bg-teal-700 text-neutral-0 border border-neutral-400 rounded-lg px-4 py-3">
-                    Add Bookmark
+                <button class="absolute bookmarkClose -top-2 right-0 p-1.5 border border-neutral-400 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                        <path stroke="#001414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
+                              d="M15 5 5 15M5 5l10 10"/>
+                    </svg>
                 </button>
             </div>
+            <div class="bottom">
+                <form class="space-y-5">
+                    <div class="relative flex flex-col space-y-1.5">
+                        <label for="title" class="text-preset-4-medium text-neutral-900">Title <span
+                                class="text-teal-700">*</span></label>
+                        <input type="text" id="title" name="title" maxlength="40"
+                               class="title-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                               required>
+                        <span class="hidden absolute title-error -bottom-4 text-red-800 text-preset-4-medium">Title is required</span>
+                    </div>
+                    <div class="relative flex flex-col space-y-1.5">
+                        <label for="description" class="text-preset-4-medium text-neutral-900">Description <span
+                                class="text-teal-700">*</span></label>
+                        <textarea
+                                class="description-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                                id="description"
+                                name="description" rows="3" maxlength="280" required></textarea>
+                        <div class="text-preset-5 text-right">0/280</div>
+                        <span class="hidden absolute description-error bottom-1 text-red-800 text-preset-4-medium">Description is required</span>
+                    </div>
+                    <div class="relative flex flex-col space-y-1.5">
+                        <label for="website" class="text-preset-4-medium text-neutral-900">Website URL <span
+                                class="text-teal-700">*</span></label>
+                        <input type="url" id="website" name="website" maxlength="250"
+                               class="website-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                               required>
+                        <span class="hidden absolute website-error -bottom-4 text-red-800 text-preset-4-medium">Valid URL is required</span>
+                    </div>
+                    <div class="relative flex flex-col space-y-1.5">
+                        <label for="tags" class="text-preset-4-medium text-neutral-900">Tags <span
+                                class="text-teal-700">*</span></label>
+                        <input type="text" id="tags" name="tags" placeholder="e.g. Design, Learning, Tools"
+                               maxlength="50"
+                               class="tags-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                               required>
+                        <span class="hidden absolute tags-error -bottom-4 text-red-800 text-preset-4-medium">Tags are required</span>
+                    </div>
+                </form>
+                <div class="text-right space-x-4 mt-8">
+                    <button class="cancel-bookmark-btn text-preset-3 border border-neutral-400 rounded-lg px-4 py-3">
+                        Cancel
+                    </button>
+                    <button class="add-bookmark-btn text-preset-3 bg-teal-700 text-neutral-0 border border-neutral-400 rounded-lg px-4 py-3">
+                        Add Bookmark
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </body>
 <script type="module" src="src/ts/index.ts"></script>
 </html>
