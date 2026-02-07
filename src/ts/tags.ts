@@ -5,7 +5,12 @@ const tagsContainer = document.querySelector('.tags') as HTMLDivElement
 
 let activeTags: string[] = []
 
+export let filteredBookmarks: any[] = []
+
 export function showTags() {
+    if (filteredBookmarks.length == 0) {
+        filteredBookmarks = [...bookmarks]
+    }
     tagsContainer.innerHTML = ''
     const allTags = bookmarks.flatMap(bookmark => bookmark.tags)
     const uniqueTags = [...new Set(allTags)]
@@ -36,8 +41,8 @@ export function showTags() {
                 activeTags = activeTags.filter(t => t !== tag)
             }
 
-            const filteredBookmarks = activeTags.length === 0
-                ? bookmarks
+             filteredBookmarks = activeTags.length === 0
+                ? [...bookmarks]
                 : bookmarks.filter(book => book.tags.some(t => activeTags.includes(t)))
 
         showBookmarks(filteredBookmarks)
