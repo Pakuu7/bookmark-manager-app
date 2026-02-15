@@ -4,7 +4,6 @@ const BOOKMARKS_KEY = 'my-bookmarks-data'
 
 export function saveBookmarksToStorage(bookmarks: Bookmark[]): void {
     const dataString = JSON.stringify(bookmarks)
-    console.log(dataString)
     localStorage.setItem(BOOKMARKS_KEY, dataString)
 }
 
