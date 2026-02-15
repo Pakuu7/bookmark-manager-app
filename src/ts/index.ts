@@ -15,13 +15,14 @@ const closeBookmarkPanel = document.querySelector('.bookmarkClose') as HTMLButto
 // const addBookmarkBtn = document.querySelector('.addBookmarkBtn') as HTMLButtonElement;
 const closeHamburgerMenuBtn = document.querySelector('.close-hamburger-btn') as HTMLImageElement;
 const openHamburgerMenuBtn = document.querySelector('.open-hamburger-btn') as HTMLButtonElement;
-const sortMenu = document.querySelector(`.sort-menu`) as HTMLDivElement;
+const sortMenu = document.querySelector('.sort-menu') as HTMLDivElement;
 const sortMenuBtn = document.querySelector('.sort-menu-btn') as HTMLButtonElement
 const searchInput = document.querySelector('.search-input') as HTMLInputElement
 
 const hamburgerMenu = document.querySelector('.hamburger-menu') as HTMLDivElement;
 
-const toggleElement = (element: HTMLElement) => {
+export const toggleElement = (element: HTMLElement) => {
+    if (!element) return
     element.classList.toggle('hidden')
 }
 
