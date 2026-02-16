@@ -128,6 +128,16 @@ export function showBookmarks(list: Bookmark[]) {
                 ` : ''}
             </div>
      `
+
+        const visitLink = card.querySelector('a[href]') as HTMLAnchorElement
+
+        visitLink?.addEventListener('click', () => {
+            bookmark.visitCount++
+            bookmark.lastVisited = new Date().toISOString()
+            saveBookmarksToStorage(bookmarks)
+            renderCurrentTab()
+        })
+
         const bookmarkMenu = card.querySelector('.bookmark-menu') as HTMLDivElement | null
         const bookmarkEdit = card.querySelector('.bookmark-edit') as HTMLButtonElement
 
