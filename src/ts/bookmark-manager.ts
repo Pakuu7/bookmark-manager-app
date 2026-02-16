@@ -1,10 +1,11 @@
-import {sortBookmarks} from "./sorting.ts";
 import {getBookmarksFromStorage} from "./storage.ts";
 import data from "../json/data.json"
 import {saveBookmarksToStorage} from "./storage.ts";
 import {openEditModal} from "./edit-bookmark.ts";
 
 const cardsContainer = document.querySelector('.cards') as HTMLDivElement;
+
+let currentTab: 'home' | 'archived' = 'home'
 
 export interface Bookmark {
     id: string;
@@ -55,7 +56,7 @@ export function showBookmarks(list: Bookmark[]) {
                             <button class="copy-btn flex items-center p-2 space-x-2.5 w-full rounded-md hover:bg-neutral-100 transition-colors"><img src="/icon-copy.svg" class="w-4" alt=""><p class="text-preset-4">Copy URL</p></button>
                             <button class="pin-btn flex items-center p-2 space-x-2.5 w-full rounded-md hover:bg-neutral-100 transition-colors"><img src="/icon-unpin.svg" class="w-4" alt=""><p class="text-preset-4">${bookmark.pinned ? 'Unpin' : 'Pin'}</p></button>
                             <button class="edit-btn flex items-center p-2 space-x-2.5 w-full rounded-md hover:bg-neutral-100 transition-colors"><img src="/icon-edit.svg" class="w-4" alt=""><p class="text-preset-4">Edit</p></button>
-                            <button class="flex items-center p-2 space-x-2.5 w-full rounded-md hover:bg-neutral-100 transition-colors"><img src="/icon-archive.svg" class="w-4" alt=""><p class="text-preset-4">Archive</p></button>
+                            <button class="archive-btn flex items-center p-2 space-x-2.5 w-full rounded-md hover:bg-neutral-100 transition-colors"><img src="/icon-archive.svg" class="w-4" alt=""><p class="text-preset-4">${bookmark.isArchived ? 'Unarchive' : 'Archive'}</p></button>
                        </div>
                 </div>
                 
@@ -158,20 +159,51 @@ export function showBookmarks(list: Bookmark[]) {
             bookmark.pinned = !bookmark.pinned
             saveBookmarksToStorage(bookmarks)
             bookmarks.sort((a, b) => Number(b.pinned) - Number(a.pinned))
-            showBookmarks(bookmarks)
+            renderCurrentTab()
         })
 
         const editBtn = card.querySelector('.edit-btn') as HTMLButtonElement;
         editBtn?.addEventListener('click', () => {
             bookmarkMenu?.classList.add('hidden')
-
             openEditModal(bookmark)
         })
+
+
+        const archiveBtn = card.querySelector('.archive-btn') as HTMLButtonElement
+
+        archiveBtn?.addEventListener('click', () => {
+            bookmark.isArchived = !bookmark.isArchived
+            saveBookmarksToStorage(bookmarks)
+            renderCurrentTab()
+        })
+
 
         fragment.appendChild(card)
     })
     cardsContainer.appendChild(fragment)
 }
 
-showBookmarks(bookmarks)
-sortBookmarks()
+export function renderCurrentTab() {
+    const filtered = bookmarks.filter(b => {
+        if (currentTab === 'home') return !b.isArchived
+        if (currentTab === 'archived') return b.isArchived
+        return true
+    })
+    tabTitle.textContent = currentTab === 'archived' ? 'Archived bookmarks' : 'All bookmarks'
+    filtered.sort((a, b) => Number(b.pinned) - Number(a.pinned))
+    showBookmarks(filtered)
+}
+
+const homeTabBtn = document.querySelector('.nav-home') as HTMLButtonElement
+const archivedTabBtn = document.querySelector('.nav-archived') as HTMLButtonElement
+const tabTitle = document.querySelector('.tab-title') as HTMLHeadingElement
+
+homeTabBtn.addEventListener('click', () => {
+    currentTab = 'home'
+    renderCurrentTab()
+})
+
+archivedTabBtn.addEventListener('click', () => {
+    currentTab = 'archived'
+    renderCurrentTab()
+})

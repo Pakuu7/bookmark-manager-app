@@ -1,5 +1,5 @@
 import {type Bookmark, bookmarks, showBookmarks} from "./bookmark-manager.ts";
-import {toggleElement} from "./index.ts";
+import {toggleElement} from "./utils.ts";
 import {saveBookmarksToStorage} from "./storage.ts";
 
 const editPanel = document.querySelector('.edit-bookmark') as HTMLDivElement;
