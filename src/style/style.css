@@ -117,36 +117,34 @@
     }
 }
 
-@layer components {
-    .text-preset-1 {
-        @apply font-main font-bold text-[24px] leading-[140%] tracking-normal;
-    }
+@utility text-preset-1 {
+    @apply font-main font-bold text-[24px] leading-[140%] tracking-normal;
+}
 
-    .text-preset-2 {
-        @apply font-main font-bold text-[20px] leading-[120%] tracking-normal;
-    }
+@utility text-preset-2 {
+    @apply font-main font-bold text-[20px] leading-[120%] tracking-normal;
+}
 
-    .text-preset-2-semibold {
-        @apply font-main font-semibold text-[20px] leading-[120%] tracking-normal;
-    }
+@utility text-preset-2-semibold {
+    @apply font-main font-semibold text-[20px] leading-[120%] tracking-normal;
+}
 
-    .text-preset-3 {
-        @apply font-main font-semibold text-[16px] leading-[140%] tracking-normal;
-    }
+@utility text-preset-3 {
+    @apply font-main font-semibold text-[16px] leading-[140%] tracking-normal;
+}
 
-    .text-preset-3-medium {
-        @apply font-main font-medium text-[16px] leading-[130%] tracking-normal;
-    }
+@utility text-preset-3-medium {
+    @apply font-main font-medium text-[16px] leading-[130%] tracking-normal;
+}
 
-    .text-preset-4 {
-        @apply font-main font-semibold text-[14px] leading-[140%] tracking-normal;
-    }
+@utility text-preset-4 {
+    @apply font-main font-semibold text-[14px] leading-[140%] tracking-normal;
+}
 
-    .text-preset-4-medium {
-        @apply font-main font-medium text-[14px] leading-[150%] tracking-normal;
-    }
+@utility text-preset-4-medium {
+    @apply font-main font-medium text-[14px] leading-[150%] tracking-normal;
+}
 
-    .text-preset-5 {
-        @apply font-main font-medium text-[12px] leading-[140%] tracking-normal;
-    }
+@utility text-preset-5 {
+    @apply font-main font-medium text-[12px] leading-[140%] tracking-normal;
 }

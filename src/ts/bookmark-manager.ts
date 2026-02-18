@@ -37,7 +37,7 @@ export function showBookmarks(list: Bookmark[]) {
     list.forEach(bookmark => {
         let bookmarkUrl = bookmark.url
         const card = document.createElement('div');
-        card.classList.add('bg-neutral-0', 'shadow-lg', 'rounded-xl')
+        card.classList.add('bg-neutral-0', 'shadow-lg', 'rounded-xl', 'flex', 'flex-col', 'h-full')
         const lastVisitedText = formatDate(bookmark.lastVisited);
         const createdAtText = formatDate(bookmark.createdAt)
         const displayUrl = bookmarkUrl
@@ -77,7 +77,7 @@ export function showBookmarks(list: Bookmark[]) {
                     </svg>
                 </button>
             </div>
-            <div class="pt-3 pb-3 p-4">
+            <div class="pt-3 pb-3 p-4 grow">
                 <p class="text-preset-4-medium">
                     ${bookmark.description}
                 </p>
