@@ -80,12 +80,12 @@
 </main>
 <div class="hidden hamburger-menu fixed inset-0 z-50">
     <div class="absolute inset-0 bg-neutral-900/40 backdrop-blur-xs"></div>
-    <div class="absolute top-0 left-0 h-full header-menu bg-white w-4/5 flex flex-col">
+    <div class="absolute top-0 left-0 h-full header-menu bg-white w-4/5 flex flex-col md:w-2/5">
         <div class="top relative p-5 pb-2.5 flex-none">
             <img src="/logo-light-theme.svg">
-            <img src="/icon-close.svg" class="close-hamburger-btn absolute top-5 right-5 cursor-pointer" alt="">
+            <img src="/icon-close.svg" class="close-hamburger-btn absolute top-3 right-3 p-1.5 cursor-pointer" alt="">
         </div>
-        <div class="main px-4 flex flex-col flex-1 min-h-0 space-y-4">
+        <div class="main px-4 mt-4 flex flex-col flex-1 min-h-0 space-y-4">
             <div class="pages flex-none">
                 <button class="nav-home flex items-center text-preset-3 text-neutral-800 px-3 py-2 bg-neutral-100 rounded-md w-full cursor-pointer mb-2">
                     <img src="/icon-home.svg" alt="" class="pr-2">Home
@@ -94,7 +94,7 @@
                     <img src="/icon-archive.svg" alt="" class="pr-2">Archived
                 </button>
             </div>
-            <div class="flex flex-col flex-1 min-h-0 overflow-hidden">
+            <div class="flex flex-col flex-1 mt-4 min-h-0 overflow-hidden">
                 <h2 class="font-bold text-xs px-3 pb-1 text-neutral-500 uppercase">Tags</h2>
                 <div class="tags space-y-0.5 overflow-y-auto flex-1 mb-10">
                 </div>
@@ -103,7 +103,7 @@
     </div>
 </div>
 <div class="add-bookmark fixed inset-0 z-50 flex items-center justify-center bg-neutral-900/50 hidden">
-    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8">
+    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8 md:w-2/3">
         <div class="top relative">
             <div class="space-y-2">
                 <h2 class="text-preset-2">Add a bookmark</h2>
@@ -167,7 +167,7 @@
     </div>
 </div>
 <div class="edit-bookmark fixed inset-0 z-50 flex items-center justify-center bg-neutral-900/50 hidden">
-    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8">
+    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8 md:w-2/3">
         <div class="top relative">
             <div class="space-y-2">
                 <h2 class="text-preset-2">Edit bookmark</h2>
