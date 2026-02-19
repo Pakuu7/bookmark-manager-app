@@ -204,16 +204,20 @@ export function renderCurrentTab() {
     showBookmarks(filtered)
 }
 
-const homeTabBtn = document.querySelector('.nav-home') as HTMLButtonElement
-const archivedTabBtn = document.querySelector('.nav-archived') as HTMLButtonElement
+const homeTabBtn = document.querySelectorAll('.nav-home') as NodeListOf<HTMLButtonElement>
+const archivedTabBtn = document.querySelectorAll('.nav-archived') as NodeListOf<HTMLButtonElement>
 const tabTitle = document.querySelector('.tab-title') as HTMLHeadingElement
 
-homeTabBtn.addEventListener('click', () => {
-    currentTab = 'home'
-    renderCurrentTab()
+homeTabBtn.forEach(homeTab => {
+    homeTab.addEventListener('click', () => {
+        currentTab = 'home'
+        renderCurrentTab()
+    })
 })
 
-archivedTabBtn.addEventListener('click', () => {
-    currentTab = 'archived'
-    renderCurrentTab()
+archivedTabBtn.forEach(archivedTab => {
+    archivedTab.addEventListener('click', () => {
+        currentTab = 'archived'
+        renderCurrentTab()
+    })
 })

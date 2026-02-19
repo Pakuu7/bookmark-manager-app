@@ -1,7 +1,7 @@
 import {bookmarks} from "./bookmark-manager.ts";
 import {showBookmarks} from "./bookmark-manager.ts";
 
-const tagsContainer = document.querySelector('.tags') as HTMLDivElement
+const tagsContainer = document.querySelectorAll('.tags') as NodeListOf<HTMLDivElement>
 
 let activeTags: string[] = []
 
@@ -11,16 +11,19 @@ export function showTags() {
     if (filteredBookmarks.length == 0) {
         filteredBookmarks = [...bookmarks]
     }
-    tagsContainer.innerHTML = ''
-    const allTags = bookmarks.flatMap(bookmark => bookmark.tags)
-    const uniqueTags = [...new Set(allTags)]
+    tagsContainer.forEach(container => {
+            container.innerHTML = ''
 
-    uniqueTags.forEach(tag => {
-        const tagCount = allTags.filter(singleTag => singleTag == tag).length
-        const tagElement = document.createElement('div')
-        tagElement.classList.add('tag', 'flex', 'items-center', 'justify-between', 'px-3', 'py-2', 'cursor-pointer')
 
-        tagElement.innerHTML = `    
+            const allTags = bookmarks.flatMap(bookmark => bookmark.tags)
+            const uniqueTags = [...new Set(allTags)]
+
+            uniqueTags.forEach(tag => {
+                const tagCount = allTags.filter(singleTag => singleTag == tag).length
+                const tagElement = document.createElement('div')
+                tagElement.classList.add('tag', 'flex', 'items-center', 'justify-between', 'px-3', 'py-2', 'cursor-pointer')
+
+                tagElement.innerHTML = `    
                         <div class="flex items-center space-x-2">
                             <input type="checkbox" class="tags-choice pointer-events-none">
                             <p class="text-preset-3 text-neutral-800">${tag}</p>
@@ -30,23 +33,25 @@ export function showTags() {
                         </div>
         `
 
-        const checkbox = tagElement.querySelector("input") as HTMLInputElement
-        tagElement.addEventListener('click', () => {
+                const checkbox = tagElement.querySelector("input") as HTMLInputElement
+                tagElement.addEventListener('click', () => {
 
-            checkbox.checked = !checkbox.checked
+                    checkbox.checked = !checkbox.checked
 
-            if (checkbox.checked) {
-                activeTags.push(tag)
-            } else {
-                activeTags = activeTags.filter(t => t !== tag)
-            }
+                    if (checkbox.checked) {
+                        activeTags.push(tag)
+                    } else {
+                        activeTags = activeTags.filter(t => t !== tag)
+                    }
 
-             filteredBookmarks = activeTags.length === 0
-                ? [...bookmarks]
-                : bookmarks.filter(book => book.tags.some(t => activeTags.includes(t)))
+                    filteredBookmarks = activeTags.length === 0
+                        ? [...bookmarks]
+                        : bookmarks.filter(book => book.tags.some(t => activeTags.includes(t)))
 
-        showBookmarks(filteredBookmarks)
-    })
-        tagsContainer.appendChild(tagElement)
+                    showBookmarks(filteredBookmarks)
+                })
+                container.appendChild(tagElement)
+            })
+        }
+    )
 }
-)}
