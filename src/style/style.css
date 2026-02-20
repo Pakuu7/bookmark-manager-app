@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.active-menu {
+    background-color: #E8F0EF;
+}
+
 @theme {
     --color-neutral-900: var(--neutral-900);
     --color-neutral-800: var(--neutral-800);

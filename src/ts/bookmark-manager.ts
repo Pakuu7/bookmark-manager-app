@@ -208,16 +208,36 @@ const homeTabBtn = document.querySelectorAll('.nav-home') as NodeListOf<HTMLButt
 const archivedTabBtn = document.querySelectorAll('.nav-archived') as NodeListOf<HTMLButtonElement>
 const tabTitle = document.querySelector('.tab-title') as HTMLHeadingElement
 
-homeTabBtn.forEach(homeTab => {
-    homeTab.addEventListener('click', () => {
-        currentTab = 'home'
-        renderCurrentTab()
+function updateUI() {
+    const allButtons = [...homeTabBtn, ...archivedTabBtn]
+    allButtons.forEach(btn => {
+        btn.classList.remove('active-menu')
     })
-})
 
-archivedTabBtn.forEach(archivedTab => {
-    archivedTab.addEventListener('click', () => {
-        currentTab = 'archived'
-        renderCurrentTab()
+    if (currentTab === 'home') {
+        homeTabBtn.forEach(btn => btn.classList.add('active-menu'))
+    } else {
+        archivedTabBtn.forEach(btn => btn.classList.add('active-menu'))
+    }
+}
+
+function initTabNavigation() {
+    homeTabBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentTab = 'home'
+            updateUI()
+            renderCurrentTab()
+        })
     })
-})
+
+    archivedTabBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentTab = 'archived'
+            updateUI()
+            renderCurrentTab()
+        })
+    })
+}
+
+initTabNavigation()
+updateUI()
