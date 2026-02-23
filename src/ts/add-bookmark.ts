@@ -1,4 +1,4 @@
-const titleInput = document.querySelector('.title-input') as HTMLInputElement;
+const titleInput = document.querySelector('.add-title-input') as HTMLInputElement;
 const descriptionInput = document.querySelector('.description-input') as HTMLInputElement;
 const websiteInput = document.querySelector('.website-input') as HTMLInputElement;
 const tagsInput = document.querySelector('.tags-input') as HTMLInputElement;
@@ -6,6 +6,7 @@ const titleError = document.querySelector('.title-error') as HTMLSpanElement;
 const descriptionError = document.querySelector('.description-error') as HTMLSpanElement;
 const websiteError = document.querySelector('.website-error') as HTMLSpanElement;
 const tagsError = document.querySelector('.tags-error') as HTMLSpanElement;
+
 
 import {type Bookmark, bookmarks, showBookmarks} from "./bookmark-manager.ts";
 import {saveBookmarksToStorage} from "./storage.ts";

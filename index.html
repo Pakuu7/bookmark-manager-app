@@ -116,9 +116,15 @@
                 </button>
                 <div class="hidden sort-menu absolute z-50 top-full mt-1 right-0 bg-neutral-0 p-2 border border-neutral-100 rounded-lg w-50 dark:bg-d-800 dark:border-d-500">
                     <ul class="space-y-1 text-left">
-                        <li class="recently-added flex justify-between p-2 text-preset-4 cursor-pointer"><button class="cursor-pointer">Recently added</button></li>
-                        <li class="recently-visited p-2 text-preset-4 cursor-pointer"><button class="cursor-pointer">Recently visited</button></li>
-                        <li class="most-visited p-2 text-preset-4 cursor-pointer"><button class="cursor-pointer">Most visited</button></li>
+                        <li class="recently-added flex items-center justify-between p-2 text-preset-4 cursor-pointer">
+                            <button class="cursor-pointer dark:text-d-100">Recently added</button>
+                        </li>
+                        <li class="recently-visited flex items-center justify-between p-2 text-preset-4 cursor-pointer">
+                            <button class="cursor-pointer dark:text-d-100">Recently visited</button>
+                        </li>
+                        <li class="most-visited flex items-center justify-between p-2 text-preset-4 cursor-pointer">
+                            <button class="cursor-pointer dark:text-d-100">Most visited</button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -175,45 +181,45 @@
                     <label for="add-title" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Title <span
                             class="text-teal-700">*</span></label>
                     <input type="text" id="add-title" name="title" maxlength="40"
-                           class="add-title-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
+                           class="add-title-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent outline-none dark:border-d-300 dark:text-d-0"
                            required>
-                    <span class="hidden absolute title-error -bottom-4 text-red-800 text-preset-4-medium">Title is required</span>
+                    <span class="hidden absolute title-error -bottom-4 text-red-600 text-preset-4-medium">Title is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
                     <label for="add-description" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Description
                         <span
                                 class="text-teal-700">*</span></label>
                     <textarea
-                            class="description-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
+                            class="description-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent outline-none dark:border-d-300 dark:text-d-0"
                             id="add-description"
                             name="description" rows="3" maxlength="280" required></textarea>
                     <div class="text-preset-5 text-right dark:text-d-100">0/280</div>
-                    <span class="hidden absolute description-error bottom-1 text-red-800 text-preset-4-medium">Description is required</span>
+                    <span class="hidden absolute description-error bottom-1 text-red-600 text-preset-4-medium">Description is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
                     <label for="add-website" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Website URL
                         <span
                                 class="text-teal-700">*</span></label>
                     <input type="url" id="add-website" name="website" maxlength="250"
-                           class="website-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
+                           class="website-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent outline-none dark:border-d-300 dark:text-d-0"
                            required>
-                    <span class="hidden absolute website-error -bottom-4 text-red-800 text-preset-4-medium">Valid URL is required</span>
+                    <span class="hidden absolute website-error -bottom-4 text-red-600 text-preset-4-medium">Valid URL is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
                     <label for="add-tags" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Tags <span
                             class="text-teal-700">*</span></label>
                     <input type="text" id="add-tags" name="tags" placeholder="e.g. Design, Learning, Tools"
                            maxlength="50"
-                           class="tags-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
+                           class="tags-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent outline-none dark:border-d-300 dark:text-d-0"
                            required>
-                    <span class="hidden absolute tags-error -bottom-4 text-red-800 text-preset-4-medium">Tags are required</span>
+                    <span class="hidden absolute tags-error -bottom-4 text-red-600 text-preset-4-medium">Tags are required</span>
                 </div>
             </form>
             <div class="text-right space-x-4 mt-8">
                 <button class="cancel-bookmark-btn text-preset-3 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer dark:border-d-400 dark:text-d-0">
                     Cancel
                 </button>
-                <button class="add-bookmark-btn text-preset-3 bg-teal-700 text-neutral-0 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer">
+                <button class="add-bookmark-btn text-preset-3 bg-teal-700 text-neutral-0 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer dark:border-d-300">
                     Add Bookmark
                 </button>
             </div>

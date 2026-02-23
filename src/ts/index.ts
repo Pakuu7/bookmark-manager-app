@@ -21,6 +21,7 @@ const hamburgerMenu = document.querySelector('.hamburger-menu') as HTMLDivElemen
 const profile = document.querySelector('.profile') as HTMLDivElement;
 const profileMenu = document.querySelector('.profile-menu') as HTMLDivElement;
 
+
 closeBookmarkPanel.addEventListener('click', () => toggleElement(addBookmarkPanel))
 closeHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
 
