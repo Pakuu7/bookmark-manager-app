@@ -1,13 +1,38 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 .active-menu {
-    background-color: #E8F0EF;
+    @apply bg-neutral-100 dark:bg-d-600;
+    transition: background-color .3s ease
 }
 
 @theme {
+    --neutral-900: #051513;
+    --neutral-800: #4C5C59;
+    --neutral-500: #899492;
+    --neutral-400: #C0CFCC;
+    --neutral-300: #DDE9E7;
+    --neutral-100: #E8F0EF;
+    --neutral-0:   #FFFFFF;
+
+    --teal-700: #014745;
+    --teal-800: #013C3B;
+
+    --red-600: #FD4740;
+    --red-800: #CB0A04;
+
+    --color-d-900: #001414;
+    --color-d-800: #001F1F;
+    --color-d-600: #002E2D;
+    --color-d-500: #004241;
+    --color-d-400: #004748;
+    --color-d-300: #00706E;
+    --color-d-100: #B1B9B9;
+    --color-d-0:   #FFFFFF;
+
+
     --color-neutral-900: var(--neutral-900);
     --color-neutral-800: var(--neutral-800);
-    --color-neutral-600: var(--neutral-600);
     --color-neutral-500: var(--neutral-500);
     --color-neutral-400: var(--neutral-400);
     --color-neutral-300: var(--neutral-300);
@@ -56,19 +81,6 @@
 @layer base {
     :root {
         /* --- COLORS (Light Mode) --- */
-        --neutral-900: #051513;
-        --neutral-800: #4C5C59;
-        --neutral-500: #899492;
-        --neutral-400: #C0CFCC;
-        --neutral-300: #DDE9E7;
-        --neutral-100: #E8F0EF;
-        --neutral-0:   #FFFFFF;
-
-        --teal-700: #014745;
-        --teal-800: #013C3B;
-
-        --red-600: #FD4740;
-        --red-800: #CB0A04;
 
         /* --- SPACING --- */
         --spacing-0:    0px;
@@ -102,18 +114,6 @@
         --radius-20:   20px;
         --radius-24:   24px;
         --radius-full: 9999px;
-    }
-
-    /* --- DARK MODE OVERRIDES --- */
-    [data-theme="dark"] {
-        --neutral-900: #001414;
-        --neutral-800: #001F1F;
-        --neutral-600: #002E2D;
-        --neutral-500: #004241;
-        --neutral-400: #004746;
-        --neutral-300: #00706E;
-        --neutral-100: #B1B9B9;
-        --neutral-0:   #FFFFFF;
     }
 
     body {

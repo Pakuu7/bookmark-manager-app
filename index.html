@@ -9,73 +9,116 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-neutral-100 relative">
-<div class="flex min-h-screen bg-neutral-100">
-    <aside class="hidden xl:flex flex-col w-[280px] h-screen sticky top-0 border-r border-neutral-300 bg-neutral-0 flex-none">
+<body class="bg-neutral-100 relative transition-colors duration-300 dark:bg-d-900">
+<div class="flex min-h-screen bg-neutral-100 dark:bg-d-900">
+    <aside class="hidden xl:flex flex-col w-[280px] h-screen sticky top-0 border-r border-neutral-300 bg-neutral-0 flex-none dark:bg-d-800 dark:border-d-500">
         <div class="p-6 pb-4">
-            <img src="/logo-light-theme.svg" alt="Logo" class="w-32">
+            <img src="/logo-light-theme.svg" alt="Logo" class="w-32 dark:brightness-0 dark:invert">
         </div>
 
         <nav class="px-4 mt-4 space-y-2">
-            <button class="nav-home flex items-center text-preset-3 text-neutral-800 px-3 py-2 rounded-md w-full cursor-pointer hover:bg-neutral-100 transition-colors">
-                <img src="/icon-home.svg" alt="" class="mr-3"> Home
+            <button class="nav-home flex items-center text-preset-3 text-neutral-800 px-3 py-2 rounded-md w-full cursor-pointer hover:bg-neutral-100 transition-colors dark:text-d-100 dark:hover:bg-d-600">
+                <img src="/icon-home.svg" alt="" class="mr-3 dark:brightness-0 dark:invert"> Home
             </button>
-            <button class="nav-archived flex items-center text-preset-3 text-neutral-800 px-3 py-2 rounded-md w-full cursor-pointer hover:bg-neutral-100 transition-colors">
-                <img src="/icon-archive.svg" alt="" class="mr-3"> Archived
+            <button class="nav-archived flex items-center text-preset-3 text-neutral-800 px-3 py-2 rounded-md w-full cursor-pointer hover:bg-neutral-100 transition-colors dark:text-d-100 dark:hover:bg-d-600">
+                <img src="/icon-archive.svg" alt="" class="mr-3 dark:brightness-0 dark:invert"> Archived
             </button>
         </nav>
 
         <div class="flex flex-col flex-1 mt-8 px-4 overflow-hidden">
-            <h2 class="font-bold text-xs px-3 pb-2 text-neutral-500 uppercase tracking-wider">Tags</h2>
+            <h2 class="font-bold text-xs px-3 pb-2 text-neutral-500 uppercase tracking-wider dark:text-d-100">Tags</h2>
             <div class="tags space-y-1 overflow-y-auto pr-2">
             </div>
         </div>
     </aside>
-
     <div class="flex-1 min-w-0 flex flex-col">
-        <header class="header bg-neutral-0 px-4 py-3 border-b border-neutral-300 sticky top-0 z-40">
+        <header class="header bg-neutral-0 px-4 py-3 border-b border-neutral-300 sticky top-0 z-40 dark:bg-d-800 dark:border-d-500">
             <div class="flex justify-between items-center w-full">
                 <div class="flex items-center gap-4 flex-1">
-                    <button class="open-hamburger-btn p-2 border border-neutral-400 rounded-lg shrink-0 md:p-3 xl:hidden">
+                    <button class="open-hamburger-btn p-2 border border-neutral-400 rounded-lg shrink-0 md:p-3 xl:hidden text-neutral-900 dark:text-d-0 dark:border-d-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                            <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M2.5 10h15m-15-5h15m-15 10h15"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="1.6"
+                                  d="M2.5 10h15m-15-5h15m-15 10h15"/>
                         </svg>
                     </button>
-                    <div class="search flex items-center px-3 py-2 border border-neutral-300 rounded-lg space-x-2 md:py-3 w-full max-w-[300px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                            <path stroke="#001F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="m17.5 17.5-3.625-3.625m1.958-4.708a6.667 6.667 0 1 1-13.333 0 6.667 6.667 0 0 1 13.333 0"/>
+                    <div class="search flex items-center px-3 py-2 border border-neutral-300 rounded-lg space-x-2 md:py-3 w-full max-w-[300px] text-neutral-800 dark:border-d-500 dark:bg-d-600 dark:text-d-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"
+                             class="text-neutral-800 dark:text-d-100">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="1.6"
+                                  d="m17.5 17.5-3.625-3.625m1.958-4.708a6.667 6.667 0 1 1-13.333 0 6.667 6.667 0 0 1 13.333 0"/>
                         </svg>
-                        <input type="text" class="search-input text-preset-4-medium outline-none w-full" placeholder="Search by title...">
+                        <input type="text"
+                               class="search-input text-preset-4-medium outline-none w-full bg-transparent dark:text-d-0"
+                               placeholder="Search by title...">
                     </div>
                 </div>
-                <div class="flex items-center gap-4 ml-4">
-                    <button class="add flex justify-center items-center p-2 bg-teal-900 text-white rounded-lg md:px-4 md:py-3 hover:bg-teal-800 transition-colors">
+                <div class="relative flex items-center gap-4 ml-4">
+                    <button class="add flex justify-center items-center p-2 bg-teal-900 text-white rounded-lg md:px-4 md:py-3 hover:bg-teal-800 transition-colors dark:bg-teal-700">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 4.167v11.666M4.167 10h11.667"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="1.6" d="M10 4.167v11.666M4.167 10h11.667"/>
                         </svg>
                         <span class="hidden md:block pl-2 font-medium">Add Bookmark</span>
                     </button>
-                    <div class="profile shrink-0">
+                    <div class="profile shrink-0 cursor-pointer">
                         <img src="/image-avatar.webp" class="w-10 h-10 rounded-full object-cover" alt="profile-picture">
+                    </div>
+                    <div class="hidden absolute profile-menu right-0 top-full mt-2 w-64 rounded-xl border border-neutral-300 bg-neutral-0 shadow-xl overflow-hidden z-50 dark:border-d-500 dark:bg-d-600">
+                        <div class="flex items-center gap-3 p-4 border-b border-neutral-100 dark:border-d-500">
+                            <div class="shrink-0">
+                                <img src="/image-avatar.webp" class="w-10 h-10 rounded-full object-cover" alt="avatar">
+                            </div>
+                            <div class="overflow-hidden">
+                                <h3 class="text-preset-4 text-neutral-900 truncate dark:text-d-0">Emily Carter</h3>
+                                <p class="text-preset-4-medium text-neutral-500 truncate dark:text-d-100">
+                                    emily101@email.com</p>
+                            </div>
+                        </div>
+                        <div class="theme-switch-container flex items-center justify-between p-4 border-b border-neutral-100 hover:bg-neutral-100 transition-colors cursor-pointer dark:border-d-500 dark:hover:bg-d-600">
+                            <div class="flex items-center gap-3">
+                                <img src="/icon-theme.svg" class="w-4 h-4 dark:brightness-0 dark:invert" alt="">
+                                <p class="text-preset-4 text-neutral-800 dark:text-d-100">Theme</p>
+                            </div>
+                            <div class="flex items-center bg-neutral-100 p-0.5 rounded-lg border border-neutral-300 dark:bg-d-500 dark:border-d-500">
+                                <button class="theme-btn-light p-1 rounded cursor-pointer transition-all">
+                                    <img src="/icon-light-theme.svg" class="w-4 h-4 dark:brightness-0 dark:invert"
+                                         alt="Light">
+                                </button>
+                                <button class="theme-btn-dark p-1 rounded cursor-pointer transition-all">
+                                    <img src="/icon-dark-theme.svg" class="w-4 h-4 dark:brightness-0 dark:invert"
+                                         alt="Dark">
+                                </button>
+                            </div>
+                        </div>
+                        <button class="flex items-center gap-3 w-full p-4 hover:bg-neutral-100 transition-colors text-left dark:hover:bg-d-600">
+                            <img src="/icon-logout.svg" class="w-4 h-4 dark:brightness-0 dark:invert" alt="">
+                            <p class="text-preset-4 text-neutral-800 dark:text-d-100">Logout</p>
+                        </button>
                     </div>
                 </div>
             </div>
         </header>
-
         <main class="px-4 py-6 max-w-[1400px] w-full mx-auto">
             <div class="relative main-header flex justify-between items-center mb-6 md:mb-8">
                 <div>
-                    <h2 class="tab-title text-preset-2 md:text-preset-1">All bookmarks</h2>
+                    <h2 class="tab-title text-preset-2 md:text-preset-1 text-neutral-900 dark:text-d-0">All
+                        bookmarks</h2>
                 </div>
-                <button class="sort-menu-btn flex items-center px-3 py-2 rounded-lg space-x-1 border border-neutral-400 bg-neutral-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                        <path stroke="#001F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
+                <button class="sort-menu-btn flex items-center px-3 py-2 rounded-lg space-x-1 border border-neutral-400 bg-neutral-0 cursor-pointer dark:bg-d-800 dark:border-d-400 dark:text-d-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"
+                         class="text-neutral-900 dark:text-d-0">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
                               d="M14.167 3.333v13.334m0 0-3.334-3.334m3.334 3.334 3.333-3.334M5.833 16.667V3.333m0 0L2.5 6.667m3.333-3.334 3.334 3.334"/>
                     </svg>
                     <p class="text-preset-3 px-0.5">Sort by</p>
                 </button>
-                <div class="hidden sort-menu absolute z-50 top-full -mt-3 right-0 bg-neutral-0 p-2 border border-neutral-100 rounded-lg w-50">
+                <div class="hidden sort-menu absolute z-50 top-full mt-1 right-0 bg-neutral-0 p-2 border border-neutral-100 rounded-lg w-50 dark:bg-d-800 dark:border-d-500">
                     <ul class="space-y-1 text-left">
+                        <li class="recently-added flex justify-between p-2 text-preset-4 cursor-pointer"><button class="cursor-pointer">Recently added</button></li>
+                        <li class="recently-visited p-2 text-preset-4 cursor-pointer"><button class="cursor-pointer">Recently visited</button></li>
+                        <li class="most-visited p-2 text-preset-4 cursor-pointer"><button class="cursor-pointer">Most visited</button></li>
                     </ul>
                 </div>
             </div>
@@ -85,39 +128,43 @@
 </div>
 <div class="hidden hamburger-menu fixed inset-0 z-50">
     <div class="absolute inset-0 bg-neutral-900/40 backdrop-blur-xs"></div>
-    <div class="absolute top-0 left-0 h-full header-menu bg-white w-4/5 flex flex-col md:w-2/5">
+    <div class="absolute top-0 left-0 h-full header-menu bg-white w-4/5 flex flex-col md:w-2/5 dark:bg-d-800">
         <div class="top relative p-5 pb-2.5 flex-none">
-            <img src="/logo-light-theme.svg">
-            <img src="/icon-close.svg" class="close-hamburger-btn absolute top-3 right-3 p-1.5 cursor-pointer" alt="">
+            <img src="/logo-light-theme.svg" class="dark:brightness-0 dark:invert">
+            <img src="/icon-close.svg"
+                 class="close-hamburger-btn absolute top-3 right-3 p-1.5 cursor-pointer dark:brightness-0 dark:invert"
+                 alt="">
         </div>
         <div class="main px-4 mt-4 flex flex-col flex-1 min-h-0 space-y-4">
             <div class="pages flex-none">
-                <button class="nav-home flex items-center text-preset-3 text-neutral-800 px-3 py-2 rounded-md w-full cursor-pointer mb-2">
-                    <img src="/icon-home.svg" alt="" class="pr-2">Home
+                <button class="nav-home flex items-center text-preset-3 text-neutral-800 px-3 py-2 rounded-md w-full cursor-pointer mb-2 dark:text-d-100 dark:hover:bg-d-600">
+                    <img src="/icon-home.svg" alt="" class="pr-2 dark:brightness-0 dark:invert">Home
                 </button>
-                <button class="nav-archived flex items-center text-preset-3 text-neutral-800 px-3 py-2 rounded-md w-full cursor-pointer">
-                    <img src="/icon-archive.svg" alt="" class="pr-2">Archived
+                <button class="nav-archived flex items-center text-preset-3 text-neutral-800 px-3 py-2 rounded-md w-full cursor-pointer dark:text-d-100 dark:hover:bg-d-600">
+                    <img src="/icon-archive.svg" alt="" class="pr-2 dark:brightness-0 dark:invert">Archived
                 </button>
             </div>
             <div class="flex flex-col flex-1 mt-4 min-h-0 overflow-hidden">
-                <h2 class="font-bold text-xs px-3 pb-1 text-neutral-500 uppercase">Tags</h2>
-                <div class="tags space-y-0.5 overflow-y-auto flex-1 mb-10">
+                <h2 class="font-bold text-xs px-3 pb-1 text-neutral-500 uppercase dark:text-d-100">Tags</h2>
+                <div class="tags space-y-0.5 overflow-y-auto flex-1 mb-10 dark:text-d-100">
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="add-bookmark fixed inset-0 z-50 flex items-center justify-center bg-neutral-900/50 hidden">
-    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8 md:w-2/3">
+    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8 md:w-2/3 dark:bg-d-800">
         <div class="top relative">
             <div class="space-y-2">
-                <h2 class="text-preset-2">Add a bookmark</h2>
-                <p class="text-preset-5">Save a link with details to keep your collection organized. We extract the
+                <h2 class="text-preset-2 text-neutral-900 dark:text-d-0">Add a bookmark</h2>
+                <p class="text-preset-5 text-neutral-900 dark:text-d-100">Save a link with details to keep your
+                    collection organized. We extract the
                     favicon automatically from the URL.</p>
             </div>
-            <button class="absolute bookmarkClose -top-2 right-0 p-1.5 border border-neutral-400 rounded-lg cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                    <path stroke="#001414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
+            <button class="absolute bookmarkClose -top-2 right-0 p-1.5 border border-neutral-400 rounded-lg cursor-pointer dark:border-d-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"
+                     class="text-neutral-900 dark:text-d-0">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
                           d="M15 5 5 15M5 5l10 10"/>
                 </svg>
             </button>
@@ -125,43 +172,45 @@
         <div class="bottom">
             <form class="space-y-5">
                 <div class="relative flex flex-col space-y-1.5">
-                    <label for="add-title" class="text-preset-4-medium text-neutral-900">Title <span
+                    <label for="add-title" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Title <span
                             class="text-teal-700">*</span></label>
                     <input type="text" id="add-title" name="title" maxlength="40"
-                           class="add-title-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                           class="add-title-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
                            required>
                     <span class="hidden absolute title-error -bottom-4 text-red-800 text-preset-4-medium">Title is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
-                    <label for="add-description" class="text-preset-4-medium text-neutral-900">Description <span
-                            class="text-teal-700">*</span></label>
+                    <label for="add-description" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Description
+                        <span
+                                class="text-teal-700">*</span></label>
                     <textarea
-                            class="description-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                            class="description-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
                             id="add-description"
                             name="description" rows="3" maxlength="280" required></textarea>
-                    <div class="text-preset-5 text-right">0/280</div>
+                    <div class="text-preset-5 text-right dark:text-d-100">0/280</div>
                     <span class="hidden absolute description-error bottom-1 text-red-800 text-preset-4-medium">Description is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
-                    <label for="add-website" class="text-preset-4-medium text-neutral-900">Website URL <span
-                            class="text-teal-700">*</span></label>
+                    <label for="add-website" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Website URL
+                        <span
+                                class="text-teal-700">*</span></label>
                     <input type="url" id="add-website" name="website" maxlength="250"
-                           class="website-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                           class="website-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
                            required>
                     <span class="hidden absolute website-error -bottom-4 text-red-800 text-preset-4-medium">Valid URL is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
-                    <label for="add-tags" class="text-preset-4-medium text-neutral-900">Tags <span
+                    <label for="add-tags" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Tags <span
                             class="text-teal-700">*</span></label>
                     <input type="text" id="add-tags" name="tags" placeholder="e.g. Design, Learning, Tools"
                            maxlength="50"
-                           class="tags-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                           class="tags-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
                            required>
                     <span class="hidden absolute tags-error -bottom-4 text-red-800 text-preset-4-medium">Tags are required</span>
                 </div>
             </form>
             <div class="text-right space-x-4 mt-8">
-                <button class="cancel-bookmark-btn text-preset-3 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer">
+                <button class="cancel-bookmark-btn text-preset-3 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer dark:border-d-400 dark:text-d-0">
                     Cancel
                 </button>
                 <button class="add-bookmark-btn text-preset-3 bg-teal-700 text-neutral-0 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer">
@@ -172,15 +221,18 @@
     </div>
 </div>
 <div class="edit-bookmark fixed inset-0 z-50 flex items-center justify-center bg-neutral-900/50 hidden">
-    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8 md:w-2/3">
+    <div class="w-full bg-neutral-0 rounded-2xl p-8 m-4 space-y-8 md:w-2/3 dark:bg-d-800">
         <div class="top relative">
             <div class="space-y-2">
-                <h2 class="text-preset-2">Edit bookmark</h2>
-                <p class="text-preset-5">Update your saved link details — change the title, description, URL, or tags anytime.</p>
+                <h2 class="text-preset-2 text-neutral-900 dark:text-d-0">Edit bookmark</h2>
+                <p class="text-preset-5 text-neutral-900 dark:text-d-100">Update your saved link details — change the
+                    title, description, URL, or tags
+                    anytime.</p>
             </div>
-            <button class="absolute edit-bookmark-close -top-2 right-0 p-1.5 border border-neutral-400 rounded-lg cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-                    <path stroke="#001414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
+            <button class="absolute edit-bookmark-close -top-2 right-0 p-1.5 border border-neutral-400 rounded-lg cursor-pointer dark:border-d-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"
+                     class="text-neutral-900 dark:text-d-0">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
                           d="M15 5 5 15M5 5l10 10"/>
                 </svg>
             </button>
@@ -188,43 +240,45 @@
         <div class="bottom">
             <form class="space-y-5">
                 <div class="relative flex flex-col space-y-1.5">
-                    <label for="edit-title" class="text-preset-4-medium text-neutral-900">Title <span
+                    <label for="edit-title" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Title <span
                             class="text-teal-700">*</span></label>
                     <input type="text" id="edit-title" name="title" maxlength="40"
-                           class="edit-title-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                           class="edit-title-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
                            required>
                     <span class="hidden absolute title-error -bottom-4 text-red-800 text-preset-4-medium">Title is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
-                    <label for="edit-description" class="text-preset-4-medium text-neutral-900">Description <span
-                            class="text-teal-700">*</span></label>
+                    <label for="edit-description" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Description
+                        <span
+                                class="text-teal-700">*</span></label>
                     <textarea
-                            class="description-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                            class="description-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
                             id="edit-description"
                             name="description" rows="3" maxlength="280" required></textarea>
-                    <div class="text-preset-5 text-right">0/280</div>
+                    <div class="text-preset-5 text-right dark:text-d-100">0/280</div>
                     <span class="hidden absolute description-error bottom-1 text-red-800 text-preset-4-medium">Description is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
-                    <label for="edit-website" class="text-preset-4-medium text-neutral-900">Website URL <span
-                            class="text-teal-700">*</span></label>
+                    <label for="edit-website" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Website URL
+                        <span
+                                class="text-teal-700">*</span></label>
                     <input type="url" id="edit-website" name="website" maxlength="250"
-                           class="website-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                           class="website-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
                            required>
                     <span class="hidden absolute website-error -bottom-4 text-red-800 text-preset-4-medium">Valid URL is required</span>
                 </div>
                 <div class="relative flex flex-col space-y-1.5">
-                    <label for="edit-tags" class="text-preset-4-medium text-neutral-900">Tags <span
+                    <label for="edit-tags" class="text-preset-4-medium text-neutral-900 dark:text-d-0">Tags <span
                             class="text-teal-700">*</span></label>
                     <input type="text" id="edit-tags" name="tags" placeholder="e.g. Design, Learning, Tools"
                            maxlength="50"
-                           class="tags-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg"
+                           class="tags-input text-preset-4-medium p-2 border border-neutral-500 rounded-lg bg-transparent dark:border-d-500 dark:text-d-0"
                            required>
                     <span class="hidden absolute tags-error -bottom-4 text-red-800 text-preset-4-medium">Tags are required</span>
                 </div>
             </form>
             <div class="text-right space-x-4 mt-8">
-                <button class="cancel-edit-bookmark-btn text-preset-3 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer">
+                <button class="cancel-edit-bookmark-btn text-preset-3 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer dark:border-d-400 dark:text-d-0">
                     Cancel
                 </button>
                 <button class="save-bookmark-btn text-preset-3 bg-teal-700 text-neutral-0 border border-neutral-400 rounded-lg px-4 py-3 cursor-pointer">

@@ -25,11 +25,15 @@ export function showTags() {
 
                 tagElement.innerHTML = `    
                         <div class="flex items-center space-x-2">
-                            <input type="checkbox" class="tags-choice pointer-events-none">
-                            <p class="text-preset-3 text-neutral-800">${tag}</p>
+                            <input type="checkbox" class="tags-choice w-5 h-5 appearance-none border-2 rounded-md cursor-pointer
+                            border-neutral-400 bg-neutral-0 
+                            dark:border-teal-700 dark:bg-transparent
+                            checked:bg-teal-700 checked:border-teal-700
+                            checked:bg-[url('/icon-check.svg')] bg-no-repeat bg-center transition-all">
+                            <p class="text-preset-3 text-neutral-800 dark:text-d-100">${tag}</p>
                         </div>
-                        <div class="bg-neutral-100 px-2 py-0.5 font-bold text-xs border border-neutral-300 rounded-full">
-                            <span class="tag-count text-neutral-800">${tagCount}</span>
+                        <div class="bg-neutral-100 px-2 py-0.5 font-bold text-xs border border-neutral-300 rounded-full dark:bg-d-600 dark:border-d-500 ">
+                            <span class="tag-count text-neutral-800 dark:text-d-0">${tagCount}</span>
                         </div>
         `
 

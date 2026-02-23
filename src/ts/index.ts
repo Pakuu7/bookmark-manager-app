@@ -4,6 +4,7 @@ import {processNewBookmark, validateAddForm, resetForm} from "./add-bookmark.ts"
 import {searchBookmarks} from "./search.ts";
 import {showTags} from "./tags.ts";
 import {renderCurrentTab} from "./bookmark-manager.ts";
+import {initTheme} from "./theme.ts"
 
 const addInput = document.querySelector('.add') as HTMLButtonElement;
 const addBookmarkBtn = document.querySelector('.add-bookmark-btn') as HTMLButtonElement;
@@ -16,12 +17,15 @@ const sortMenu = document.querySelector('.sort-menu') as HTMLDivElement;
 const sortMenuBtn = document.querySelector('.sort-menu-btn') as HTMLButtonElement
 const searchInput = document.querySelector('.search-input') as HTMLInputElement
 const hamburgerMenu = document.querySelector('.hamburger-menu') as HTMLDivElement;
+const profile = document.querySelector('.profile') as HTMLDivElement;
+const profileMenu = document.querySelector('.profile-menu') as HTMLDivElement;
 
 addInput.addEventListener('click', () => toggleElement(addBookmarkPanel))
 closeBookmarkPanel.addEventListener('click', () => toggleElement(addBookmarkPanel))
 closeHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
 openHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
 sortMenuBtn.addEventListener('click', () => toggleElement(sortMenu))
+profile.addEventListener('click', () => toggleElement(profileMenu))
 
 addBookmarkBtn.addEventListener('click', () => {
     if (!validateAddForm()) return
@@ -40,3 +44,4 @@ sortBookmarks();
 menuCheckToggle();
 showTags()
 renderCurrentTab();
+initTheme()
