@@ -35,6 +35,7 @@ export function sortBookmarks() {
             clickedElement.insertAdjacentHTML('beforeend', checkmarkHTML)
         }
 
+    handleSort('createdAt', recentlyAddedBtn)
     recentlyAddedBtn.addEventListener('click', () => handleSort('createdAt', recentlyAddedBtn))
     recentlyVisitedBtn.addEventListener('click', () => handleSort('lastVisited', recentlyVisitedBtn))
     mostVisitedBtn.addEventListener('click', () => handleSort('visitCount', mostVisitedBtn))

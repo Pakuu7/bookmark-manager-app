@@ -58,8 +58,8 @@ cancelBookmarkBtn.addEventListener('click', () => {
 
 searchInput.addEventListener('input', searchBookmarks)
 
-sortBookmarks();
 menuCheckToggle();
 showTags()
 renderCurrentTab();
 initTheme()
+sortBookmarks();
