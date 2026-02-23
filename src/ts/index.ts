@@ -5,6 +5,7 @@ import {searchBookmarks} from "./search.ts";
 import {showTags} from "./tags.ts";
 import {renderCurrentTab} from "./bookmark-manager.ts";
 import {initTheme} from "./theme.ts"
+import {initClickOutside} from './utils.ts'
 
 const addInput = document.querySelector('.add') as HTMLButtonElement;
 const addBookmarkBtn = document.querySelector('.add-bookmark-btn') as HTMLButtonElement;
@@ -20,12 +21,28 @@ const hamburgerMenu = document.querySelector('.hamburger-menu') as HTMLDivElemen
 const profile = document.querySelector('.profile') as HTMLDivElement;
 const profileMenu = document.querySelector('.profile-menu') as HTMLDivElement;
 
-addInput.addEventListener('click', () => toggleElement(addBookmarkPanel))
 closeBookmarkPanel.addEventListener('click', () => toggleElement(addBookmarkPanel))
 closeHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
+
+addInput.addEventListener('click', (e) => {
+    e.stopPropagation()
+    toggleElement(addBookmarkPanel)
+})
+
+sortMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation()
+    toggleElement(sortMenu)
+})
+
+profile.addEventListener('click', (e) => {
+    e.stopPropagation()
+    toggleElement(profileMenu)
+})
+
 openHamburgerMenuBtn.addEventListener('click', () => toggleElement(hamburgerMenu))
-sortMenuBtn.addEventListener('click', () => toggleElement(sortMenu))
-profile.addEventListener('click', () => toggleElement(profileMenu))
+
+initClickOutside(sortMenu, sortMenuBtn)
+initClickOutside(profileMenu, profile)
 
 addBookmarkBtn.addEventListener('click', () => {
     if (!validateAddForm()) return

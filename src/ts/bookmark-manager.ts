@@ -2,6 +2,7 @@ import {getBookmarksFromStorage} from "./storage.ts";
 import data from "../json/data.json"
 import {saveBookmarksToStorage} from "./storage.ts";
 import {openEditModal} from "./edit-bookmark.ts";
+import {initClickOutside} from "./utils.ts";
 
 const cardsContainer = document.querySelector('.cards') as HTMLDivElement;
 
@@ -127,7 +128,6 @@ export function showBookmarks(list: Bookmark[]) {
                 ` : ''}
             </div>
      `
-
         const visitLink = card.querySelector('a[href]') as HTMLAnchorElement
 
         visitLink?.addEventListener('click', () => {
@@ -140,7 +140,8 @@ export function showBookmarks(list: Bookmark[]) {
         const bookmarkMenu = card.querySelector('.bookmark-menu') as HTMLDivElement | null
         const bookmarkEdit = card.querySelector('.bookmark-edit') as HTMLButtonElement
 
-        bookmarkEdit?.addEventListener('click', () => {
+        bookmarkEdit?.addEventListener('click', (e) => {
+            e.stopPropagation()
             const bookmarksMenu = document.querySelectorAll('.bookmark-menu') as NodeListOf<HTMLDivElement>
             const wasHidden = bookmarkMenu?.classList.contains('hidden')
             bookmarksMenu.forEach(menu => menu.classList.add('hidden'))
@@ -149,6 +150,10 @@ export function showBookmarks(list: Bookmark[]) {
                 bookmarkMenu?.classList.remove('hidden')
             }
         })
+
+        if (bookmarkMenu) {
+            initClickOutside(bookmarkMenu, bookmarkEdit)
+        }
 
         const copyBtn = card.querySelector('.copy-btn') as HTMLButtonElement
         const copyBtnText = copyBtn.querySelector('p') as HTMLParagraphElement
