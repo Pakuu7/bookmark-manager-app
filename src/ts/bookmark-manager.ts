@@ -197,15 +197,38 @@ export function showBookmarks(list: Bookmark[]) {
     cardsContainer.appendChild(fragment)
 }
 
+export let currentSortProperty: 'createdAt' | 'lastVisited' | 'visitCount' = 'createdAt'
+
+export function setSortProperty(prop: typeof currentSortProperty) {
+    currentSortProperty = prop
+    renderCurrentTab()
+}
+
 export function renderCurrentTab() {
-    const filtered = bookmarks.filter(b => {
+    let filtered = bookmarks.filter(b => {
         if (currentTab === 'home') return !b.isArchived
         if (currentTab === 'archived') return b.isArchived
         return true
     })
     tabTitle.textContent = currentTab === 'archived' ? 'Archived bookmarks' : 'All bookmarks'
-    filtered.sort((a, b) => Number(b.pinned) - Number(a.pinned))
+
+    filtered.sort((a, b) => {
+        if (a.pinned !== b.pinned) return Number(b.pinned) - Number(a.pinned)
+
+        const valA = a[currentSortProperty]
+        const valB = b[currentSortProperty]
+
+        if (currentSortProperty === 'visitCount') {
+            return b.visitCount - a.visitCount
+        }
+
+        const timeA = new Date(valA as string ?? 0).getTime()
+        const timeB = new Date(valB as string ?? 0).getTime()
+        return timeB - timeA
+
+    })
     showBookmarks(filtered)
+
 }
 
 const homeTabBtn = document.querySelectorAll('.nav-home') as NodeListOf<HTMLButtonElement>

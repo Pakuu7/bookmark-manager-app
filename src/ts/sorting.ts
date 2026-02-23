@@ -1,5 +1,4 @@
-import {showBookmarks} from "./bookmark-manager.ts";
-import {filteredBookmarks} from "./tags.ts";
+import {setSortProperty} from "./bookmark-manager.ts";
 
 export function sortBookmarks() {
     const recentlyAddedBtn = document.querySelector('.recently-added') as HTMLLIElement;
@@ -11,35 +10,16 @@ export function sortBookmarks() {
     const allSortItems = [recentlyAddedBtn, recentlyVisitedBtn, mostVisitedBtn]
     const checkmarkHTML = `<img src="/icon-check.svg" class="sort-check dark:brightness-0 dark:invert" alt="">`
 
-    const handleSort = (property: 'createdAt' | 'lastVisited' | 'visitCount', clickedElement: HTMLLIElement) => {
-        const sorted = [...filteredBookmarks].sort((a, b) => {
+    const handleSortAction = (property: 'createdAt' | 'lastVisited' | 'visitCount', element: HTMLLIElement) => {
+        setSortProperty(property);
 
-            const valA = a[property]
-            const valB = b[property]
+        allSortItems.forEach(item => item.querySelector('.sort-check')?.remove());
+        element.insertAdjacentHTML('beforeend', checkmarkHTML);
+    };
 
-            if (property === 'visitCount') {
-                return (valB as number) - (valA as number)
-            }
-
-            const timeA = new Date(valA as string ?? 0).getTime()
-            const timeB = new Date(valB as string ?? 0).getTime()
-            return timeB - timeA
-        })
-
-        showBookmarks(sorted)
-
-            allSortItems.forEach(item => {
-                item.querySelector('.sort-check')?.remove()
-            })
-
-            clickedElement.insertAdjacentHTML('beforeend', checkmarkHTML)
-        }
-
-    handleSort('createdAt', recentlyAddedBtn)
-    recentlyAddedBtn.addEventListener('click', () => handleSort('createdAt', recentlyAddedBtn))
-    recentlyVisitedBtn.addEventListener('click', () => handleSort('lastVisited', recentlyVisitedBtn))
-    mostVisitedBtn.addEventListener('click', () => handleSort('visitCount', mostVisitedBtn))
-
+    recentlyAddedBtn.addEventListener('click', () => handleSortAction('createdAt', recentlyAddedBtn));
+    recentlyVisitedBtn.addEventListener('click', () => handleSortAction('lastVisited', recentlyVisitedBtn));
+    mostVisitedBtn.addEventListener('click', () => handleSortAction('visitCount', mostVisitedBtn));
 }
 
 export function menuCheckToggle() {
